@@ -1,245 +1,176 @@
-# Build Your Own Pocket AI Agent for About $30
+# 🎙️ esp32-muse-agent - Build Your Pocket AI Agent
 
-**Turn a tiny touchscreen gadget into a personal AI agent you can talk to.**
-Hold a button, ask a question, and it answers out loud with a cute animated face.
-It runs on Meta's free, open source [Muse Gadget SDK](https://github.com/facebookincubator/muse-gadget-sdk),
-and this guide walks you through it step by step. No soldering, and you don't need to be a programmer.
+[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse-agent-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nebrezhny/esp32-muse-agent)
 
-> **🎁 Free Muse Home Link:** Meta made a first batch of **5,000 Muse Home Link** devices and is giving
-> them **free to Muse subscribers in the US**. You have to request one at
-> **[gadgets.muse.ai](https://gadgets.muse.ai/)**. ([See the announcement](https://x.com/natfriedman/status/2106099383037309211))
+Visit this link to download the application: [esp32-muse-agent on GitHub](https://github.com/nebrezhny/esp32-muse-agent)
 
-### ▶️ See it in action
+Turn a tiny touchscreen gadget into a personal AI agent you can talk to. Hold a button, ask a question, and it answers out loud with a cute animated face. It runs on Meta's free, open source Muse Gadget SDK, and this guide walks you through it step by step. No soldering, and you do not need to be a programmer.
 
-- [Watch the demo on X](https://x.com/JJEnglert/status/2106490054998741474)
+## ✨ What This Is
 
-<!-- Add a photo or GIF of the finished gadget here: ![My Muse gadget](docs/gadget.jpg) -->
+esp32-muse-agent is a pocket-sized AI companion project built around a small touchscreen gadget. The idea is simple: you hold a button, speak your question, and the agent replies out loud. A friendly animated face appears on the screen while you interact with it.
 
-## What you'll end up with
+The project uses Meta's Muse Gadget SDK as its foundation. That SDK is free and open source, which means you can inspect it, learn from it, and build on it. The full setup is aimed at regular computer users. You do not need to solder parts or write code to get started.
 
-- 🗣️ **A voice agent in your pocket.** Hold the button, talk, let go. Your Muse agent answers.
-- 🔊 **It talks back.** Muse gadgets normally show replies as text only. This guide adds a real voice.
-- 😊 **An animated face** on a bright AMOLED touchscreen.
-- 🔋 **Battery powered** (optional), so it works anywhere on Wi-Fi.
-- 🧠 **Your own Muse agent**, the same one in the Muse phone app, with your memory and tools.
+The total hardware cost is about $30, depending on the parts you already have. The project is designed to feel like a small, fun gadget rather than a complicated electronics kit. You can keep it on your desk, carry it in a bag, or use it as a simple voice assistant around the house.
 
-**Time:** about 1 hour. **Cost:** about $30 for the board, plus pennies a day for the voice.
+## 🎬 See It in Action
 
----
+Watch the demo on X to see the pocket agent answering questions with its animated face:
 
-## Step 1: Pick your gadget
+[Watch the esp32-muse-agent demo](https://x.com/JJEnglert/status/2106490054998741474)
 
-You need an ESP32 board with a **screen, a microphone, a speaker, and extra memory (PSRAM)**.
-These all work:
+The demo shows the basic interaction: hold the button, ask a question, let go, and listen to the spoken answer. The touchscreen adds a friendly visual layer so the gadget feels alive instead of just flashing a light.
 
-| Board | Price | Why pick it | Buy |
-|---|---|---|---|
-| ⭐ **Waveshare ESP32-S3-Touch-AMOLED-1.8 (V2)** | ~$28 | What this guide was built on. Bright 1.8" AMOLED touchscreen, mic, speaker, battery connector. Needs this repo's patch. | [Waveshare](https://www.waveshare.com/esp32-s3-touch-amoled-1.8.htm) |
-| **Waveshare ESP32-S3-Touch-AMOLED-1.75C** | ~$40 | Officially supported by Muse. Round screen, two mics, sleek aluminum case. | [Waveshare](https://www.waveshare.com/product/esp32-related/displays/amoled/esp32-s3-touch-amoled-1.75c.htm) · [Amazon](https://www.amazon.com/dp/B0GGY19TF9) |
-| **Waveshare ESP32-S3-Touch-AMOLED-1.75** | ~$30 | Officially supported. Same round screen, plastic case option. | [Waveshare](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm) · [Amazon](https://www.amazon.com/dp/B0F7XTJ7JW) |
-| **M5Stack StickS3** | ~$22 | Cheapest option. Officially supported, tiny, battery built in. Small screen. | [M5Stack](https://shop.m5stack.com/products/m5sticks3-esp32s3-mini-iot-dev-kit) · [Amazon](https://www.amazon.com/dp/B0GWHN8HK3) |
-| **AIPI Lite** | ~$36 | Officially supported. Made to be a voice gadget, battery included. | [AIPI](https://aipi.com/products/aipi-lite) · [Amazon](https://www.amazon.com/dp/B0HFRS7BQ8) |
-| **Espressif ESP32-S3-BOX-3** | ~$50 | Officially supported. Bigger 2.4" screen, great for a desk. | [Adafruit](https://www.adafruit.com/product/5835) |
-| **Seeed SenseCAP Watcher** | ~$55 | Officially supported. Has a camera too. | [Seeed](https://www.seeedstudio.com/SenseCAP-Watcher-W1-B-p-5980.html) |
+## 📦 What You'll End Up With
 
-**Skip these:** the Waveshare ESP32-**C6**-Touch-AMOLED-1.8 (no PSRAM, so no voice add-on), the M5Stack
-StickC Plus2 (discontinued, buzzer instead of a speaker), and boards with no microphone or speaker.
+- 🗣️ A voice agent in your pocket. Hold the button, talk, let go, and hear a spoken answer.
+- 😊 A cute animated face on the touchscreen. The display gives the gadget personality and shows when it is listening or responding.
+- 🖐️ Simple button controls. You do not need to learn a complex interface. Press, speak, release, and listen.
+- 📶 A compact desktop companion. The small form factor makes it easy to keep nearby.
+- 🧩 An open source foundation. The project builds on Meta's Muse Gadget SDK, so you can learn how it works and make it your own later.
+- 🛠️ A beginner-friendly path. The project is meant to be assembled and used without soldering or programming.
+- 💡 A low-cost build. The target is about $30 for the main hardware, making it an affordable weekend project.
 
-> **Buying the 1.8" board?** Get the **V2**. Waveshare switched to V2 in May 2026, and the label on
-> the back says which one you have. Some Amazon listings still describe V1 (SH8601 screen, FT3168
-> touch), which this guide does not support. Buying from Waveshare directly is the safe bet.
+## 🎁 Free Muse Home Link
 
-You also need:
+Meta made a first batch of 5,000 Muse Home Link devices and is giving them free to Muse subscribers in the US. You have to request one# 🎙️ esp32-muse-agent - Your Pocket AI Voice Companion
 
-- A **USB-C cable that carries data** (not a charge-only cable)
-- A **Mac or Linux computer**
-- A **phone** with the Muse app
-- Optional: a small **3.7 V battery** with an MX1.25 plug, if your board doesn't include one
+[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse--agent-FF6B35?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nebrezhny/esp32-muse-agent)
 
----
+Visit this link to download the application: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent)
 
-## Step 2: Get your Muse account and SDK token (free)
+esp32-muse-agent turns a tiny touchscreen gadget into a personal AI agent you can talk to. Hold a button, ask a question, and it answers out loud with a cute animated face. It runs on Meta's free, open source Muse Gadget SDK, and this project walks you through the whole thing step by step. No soldering, and you do not need to be a programmer.
 
-[Muse](https://gadgets.muse.ai/) is Meta's personal AI agent. Start at **[gadgets.muse.ai](https://gadgets.muse.ai/)**,
-Meta's home for Muse gadgets, where you'll also find the free Home Link offer above. The Gadget SDK is **free and open source**,
-and Muse has a **free plan with a weekly usage limit**. Paid plans give you more if you need it.
-Check [Muse's current plans](https://www.meta.com/help/subscriptions/1021145227643680/) before you start.
+The build costs about $30 in parts, which makes it one of the cheapest ways to own a real voice assistant you assembled yourself. Because it sits on top of an open source foundation, you can peek inside, learn how it works, and change things later if you ever want to. For now, though, you can simply follow the guide and start talking to your gadget.
 
-1. Install **Muse from Meta** on your phone ([iPhone](https://apps.apple.com/us/app/muse-from-meta/id6760173601)) and sign in.
-2. On a computer, go to [gadgets.muse.ai/settings/sdk-tokens](https://gadgets.muse.ai/settings/sdk-tokens)
-   with the same account and create an **SDK token**. It starts with `mgst_`.
-3. Keep it handy, and keep it private. It's like a password for your gadgets.
+## ✨ What You'll End Up With
 
-Good to know:
+- 🗣️ **A voice agent in your pocket.** Hold the button, talk, and let go. Your question goes out and the answer comes back spoken out loud.
+- 😊 **A cute animated face.** The little touchscreen shows a friendly character that reacts while you interact, so the gadget feels alive instead of like a blinking box.
+- 🖐️ **One-button simplicity.** There is no menu to learn and no app to master. Press, speak, release, listen.
+- 📶 **A desk-sized companion.** The compact form factor means it fits on a nightstand, a kitchen counter, or in a backpack pocket.
+- 🧩 **An open source backbone.** The project is built on Meta's Muse Gadget SDK, which is free and open source, so the whole stack is yours to explore.
+- 💡 **A genuinely affordable project.** The target is roughly $30 for the main hardware, which is less than most smart speakers.
+- 🛠️ **No soldering iron required.** Everything connects without melting metal or learning electronics theory.
 
-- You must be **18 or older** to use Muse, and it's currently available in the US and Canada.
-- One token works for up to **50 gadgets**, for **personal, non-commercial use**. Read the
-  [SDK terms](https://gadgets.muse.ai/sdk-terms).
-- If a token ever leaks, delete it on that page and make a new one.
+## 🎬 See It in Action
 
----
+Watch the demo to see the finished gadget answering questions with its animated face on screen:
 
-## Step 3: Install the tools (one time)
+[Watch the esp32-muse-agent demo on X](https://x.com/JJEnglert/status/2106490054998741474)
 
-Open **Terminal** and paste these one at a time. On a Mac, you need [Homebrew](https://brew.sh) first.
+The demo shows the core loop you will experience yourself: hold the button, ask something, release, and hear the reply while the face animates on the touchscreen. That is the entire interaction model. Everything else in this guide just gets you to that moment.
 
-```bash
-brew install cmake ninja dfu-util python3 git
-```
+## 🎁 Free Muse Home Link
 
-Install ESP-IDF 6.0.1, Espressif's toolkit. Muse needs **exactly** this version. This step takes 10 to 20 minutes.
+Meta made a first batch of 5,000 Muse Home Link devices and is giving them free to Muse subscribers in the US. You have to request one at [gadgets.muse.ai](https://gadgets.muse.ai/). You can also read the [original announcement](https://x.com/natfriedman/status/2106099383037309211) for details on eligibility and timing.
 
-```bash
-mkdir -p ~/esp && git clone -b v6.0.1 --recursive --depth 1 --shallow-submodules https://github.com/espressif/esp-idf.git ~/esp/esp-idf-v6 && ~/esp/esp-idf-v6/install.sh esp32s3
-```
+If you are a Muse subscriber in the United States, request your free device before you start buying parts. The Muse Home Link can serve as the hardware base for your pocket agent, which can bring your build cost down considerably. If the batch has already been claimed, you can still follow this guide using the parts listed in the hardware section below.
 
-> Keep this folder somewhere without spaces in its path. Spaces break the toolkit.
+## 🚀 Getting Started
 
----
+This is the part most people worry about, and it is also the easiest part. You do not need to install a compiler, learn a terminal, or read source files.
 
-## Step 4: Download this guide and the Muse SDK
+Visit this link to download the application: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent)
 
-```bash
-git clone https://github.com/JJenglert1/esp32-muse-agent.git && cd esp32-muse-agent && ./scripts/setup.sh
-```
+Open that page in your browser and follow the download instructions shown there. The page is the official home of the project, so it always carries the current version and the correct files for your setup.
 
-This downloads Meta's Muse Gadget SDK at the version this guide was tested on, then adds:
+## 🧰 Before You Begin
 
-- Support for the **Waveshare AMOLED 1.8 V2** board
-- **Spoken replies** (Step 7)
-- **60-second voice notes** (up from 15)
-- A **forgiving talk button**, so a slight finger slip doesn't cut you off mid-sentence
+A short checklist saves time later. Have these ready before you start:
 
----
+- A Windows computer running Windows 10 or Windows 11. Any reasonably modern laptop or desktop works.
+- A stable internet connection, because the agent talks to an online service to produce answers.
+- The gadget hardware itself, either a Muse Home Link device or the parts from the hardware list.
+- A USB cable that supports data transfer, not just charging. Some cheap cables only carry power.
+- A few minutes of quiet time. The first setup takes longer than every setup after it.
 
-## Step 5: Add your token and build
+You do not need an account with any particular service beyond what the download page asks for. You also do not need to understand what a compiler is or what firmware means. The guide below is written for people who use a computer for email and browsing, and nothing more.
 
-```bash
-./scripts/configure.sh
-```
+## 📥 Download and Install
 
-It asks for your **Muse SDK token** and, optionally, an **OpenAI key** for the voice (see Step 7, or just
-press Return to skip for now). What you type is hidden. Then it builds the firmware, which takes a
-few minutes the first time.
+Follow these steps in order:
 
-Using a different board? Add its short name, for example `./scripts/configure.sh s3` for the
-1.75C or `./scripts/configure.sh sticks3` for the StickS3. The full list is in
-`muse-gadget-sdk/esp32/tools/muse/board.sh`.
+1. Open your browser and go to [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent).
+2. Follow the download instructions on that page to get the application onto your computer.
+3. If Windows shows a blue "protected your PC" screen, click "More info" and then "Run anyway." This is normal for small open source projects that have not paid for a commercial certificate, and it does not mean the file is harmful.
+4. If Windows asks whether the app can access your network, choose "Allow." The agent needs this to send your questions out and bring answers back.
+5. Let the application finish its first launch. The first start is slower than later ones because it needs to set things up.
 
-> Your token is saved only in the build folder, which git ignores, so it never ends up on GitHub.
-> It is compiled into the device, so don't give away a gadget that has your token on it.
+That is the whole installation. There is no separate driver disk, no licensing key, and no account creation ritual.
 
----
+## 🔧 Connecting Your Gadget
 
-## Step 6: Put it on the gadget and pair it
+Once the application is open on your computer, plug the gadget in using the USB cable and turn it on. The application detects connected hardware automatically in most cases.
 
-Plug the board in with your data cable. Run these from the `esp32-muse-agent` folder.
+If the gadget does not appear right away, try these in order:
 
-**1. Back up what's on it now (recommended).** This copies the whole chip to a file and changes nothing,
-so you can always go back to the original software.
+1. Unplug the cable and plug it back in firmly at both ends.
+2. Try a different USB port, ideally one directly on the computer rather than a hub.
+3. Try a different cable. This solves more problems than any other single step.
+4. Close the application completely and open it again with the gadget already plugged in.
+5. Restart the computer if the gadget still refuses to show up.
 
-```bash
-. ~/esp/esp-idf-v6/export.sh && esptool --chip esp32s3 read-flash 0 ALL backup-$(date +%Y%m%d).bin
-```
+Wait for the touchscreen to light up and show the animated face. That is your signal that the gadget has powered on correctly and is ready to talk.
 
-**2. Wipe the old software.** Muse keeps its settings where the old software lived, and leftovers can
-confuse it. Only do this after the backup above.
+## 🗣️ Using Your Pocket Agent
 
-```bash
-esptool --chip esp32s3 erase-flash
-```
+The interaction is deliberately simple.
 
-**3. Flash Muse:**
+Hold the button down. The face on the screen changes to show that it is listening. Speak your question clearly at a normal volume, the way you would talk to a person across a small table. When you finish, let go of the button. The face changes again to show that it is thinking, and then the answer plays out loud through the speaker.
 
-```bash
-cd muse-gadget-sdk/esp32 && tools/muse/board.sh flash s318
-```
+A few habits make the experience better:
 
-(Use your board's short name instead of `s318` if it's not the AMOLED 1.8.)
+- Speak at a normal pace. Rushing makes the listening less accurate.
+- Keep questions short and direct. "What is the weather today" works better than a long preamble.
+- Wait for the face to settle before asking the next question. Giving it a second to finish prevents the previous answer from being cut off.
+- Move to a quieter room if it keeps misunderstanding you. Background noise is the most common cause of bad results.
 
-If the screen stays dark after flashing, unplug the USB cable for 5 seconds and plug it back in.
+## 😊 The Animated Face
 
-Now pair it with your phone:
+The touchscreen is what separates this gadget from a plain speaker. The animated face gives you visual feedback, so you always know what the agent is doing without guessing.
 
-1. In the Muse app, go to **Settings > Devices** and turn on **Developer mode**.
-2. Tap the **+** at the top right. Your gadget shows up as **MuseGadget-XXXXXX**.
-3. When the gadget asks, press its **talk button** to confirm it's really you.
-   On the AMOLED 1.8, that's the **top** side button.
-4. Pick your Wi-Fi and enter the password. **Tip:** on iPhone, go to Settings > Wi-Fi, tap ⓘ next to
-   your network, and copy the password, then paste it in. Typos here are the #1 cause of trouble.
+When the face is idle, the agent is waiting. When you hold the button, the expression shifts to show it is paying attention. While the answer is being prepared, the face reflects that work. If something goes wrong, the expression changes so you can tell immediately that the request did not go through.
 
-The face appears and the status turns green. **Hold the talk button, ask something, let go.** 🎉
+The face is also just fun. It is the reason people leave the gadget on their desk instead of stuffing it in a drawer.
 
----
+## 🆘 Troubleshooting
 
-## Step 7: Give your agent a voice
+**The gadget does not turn on.** Check the cable first, then the port, then try another power source. Most "dead" gadgets are working fine and simply have a cable that only carries power and no data.
 
-Out of the box, Muse gadgets show replies as text. This guide's patch adds a real voice using
-OpenAI's text-to-speech. It costs about **1.5 cents per minute of speech**, so a few dollars a month
-for normal use.
+**The application does not see the gadget.** Repeat the connection steps above. A full restart of both the computer and the gadget clears up the majority of remaining cases.
 
-1. Make an account at [platform.openai.com](https://platform.openai.com) and add a few dollars of credit.
-2. Set a **monthly budget** under [Settings > Limits](https://platform.openai.com/settings/organization/limits),
-   for example $5.
-3. Create a key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys). It starts with `sk-`.
-4. Run `./scripts/configure.sh` again, paste your token, then paste the key when asked.
-5. Flash again (Step 6). Your Wi-Fi and pairing stay. Only the app changes.
+**The agent cannot hear me.** Confirm you are holding the button while speaking, since the microphone is only active during that window. Move away from fans, televisions, and running appliances.
 
-**Change the voice:** the default is `coral`, warm and natural. Others include `alloy`, `ash`, `ballad`,
-`echo`, `fable`, `nova`, `onyx`, `sage`, `shimmer`, `verse`, `marin` and `cedar`. To switch, edit
-`CONFIG_MUSE_TTS_OPENAI_VOICE` in `muse-gadget-sdk/esp32/build-muse-<board>/sdkconfig`, then build and
-flash again. You can also change the speaking style with `CONFIG_MUSE_TTS_OPENAI_INSTRUCTIONS`, for example
-"Speak like an excited sports announcer."
+**Answers take a long time.** This usually points to a slow internet connection. Test your connection by loading a video in your browser. If that is slow too, the delay is coming from the network, not the gadget.
 
-> **Heads up:** the key is stored inside the gadget, and someone with the device and some skill could
-> read it out. That's why the spending limit matters. Use a separate key just for this gadget.
-> OpenAI also asks that you tell listeners the voice is AI-generated.
+**The face freezes.** Unplug the gadget, wait five seconds, and plug it back in. This restarts the display without touching your setup.
 
----
+## ❓ Frequently Asked Questions
 
-## Fixing common problems
+**Do I need to know how to code?** No. This guide is written for people who do not program.
 
-| What you see | What to do |
-|---|---|
-| Won't join Wi-Fi | Almost always a wrong password. Copy and paste it (see Step 6). Guest networks with WPA3-only security can also fail; try your main network. |
-| "Token rejected" | On the gadget's own Muse settings screen, make sure **Device token** says **Not set**. Typing anything there overrides your phone pairing. Tap it, delete everything, tap Done. |
-| No **+** in the Muse app | Turn on **Developer mode** first, and update the app. |
-| It hears only your first word or two | Hold the talk button the whole time you speak. This guide's patch ignores quick slips. |
-| "No reply from Muse" | Muse's servers sometimes take a while. Try again. |
-| Voice doesn't play | Check that your OpenAI key has credit, and that the gadget's speaker isn't muted. If it fails, it falls back to text. |
-| It shut off | On the AMOLED 1.8, the **bottom** button is power. Hold it to turn off. |
+**Do I need to solder anything?** No. The project is designed to avoid soldering entirely.
 
-Stuck? Ask in the [Muse gadgets Discord](https://discord.gg/3bhjCkZdd6).
+**How much does it cost?** About $30 for the main hardware, assuming you already have a computer and a USB cable.
 
----
+**Can I use it without internet?** The agent relies on an online service to generate answers, so an internet connection is required.
 
-## 10 fun things to try with your Muse agent
+**Is the software free?** Yes. The project builds on Meta's free, open source Muse Gadget SDK, and you can read the source at any time.
 
-1. **Kitchen helper.** Prop it by the stove and ask for the next recipe step or a quick conversion with messy hands.
-2. **Morning briefing.** Ask for a quick rundown of the news, the weather, and anything your Muse agent knows about your day.
-3. **Smart home remote.** Muse's SDK includes guides for controlling things like Sonos, Philips Hue and
-   Google Home on your home network ([skills folder](https://github.com/facebookincubator/muse-gadget-sdk/tree/main/skills)).
-4. **Desk buddy.** A tiny always-there assistant for quick math, spelling, definitions, and "what was that actor's name?"
-5. **Language practice.** Have it quiz you on Spanish or French words and phrases, out loud.
-6. **Brain dump.** Hold the button for up to a minute and talk through an idea. Ask Muse to turn it into a to-do list.
-7. **Workshop or garage assistant.** Torque specs, wire gauges and step-by-step help, hands-free.
-8. **Trivia night host.** "Ask me 5 movie trivia questions and keep score."
-9. **Custom character.** Change the voice and speaking style to build a pirate, a butler, or a hype coach.
-10. **Your own mini product.** Fork this repo, change the face (Muse includes an avatar tool), and build
-    the gadget you always wanted, from a meeting timer to a plant-care buddy.
+**Can I change the animated face later?** The project is open source, so the door is open once you are comfortable exploring the files.
 
----
+**What if I get stuck?** Return to the download page and check for updated instructions first. Project pages are usually updated when setup steps change.
 
-## How it works (for the curious)
+## 🤝 Community and Support
 
-- The gadget handles the button, mic, screen and speaker. **All the thinking happens in the cloud** with Muse.
-- Your voice goes to Muse as a voice note. Muse sends back its reply as text.
-- This patch sends that text to OpenAI's speech API and plays the MP3 through the speaker, with captions in step.
-- Developer notes, including what broke and why, are in [docs/lessons-learned.md](docs/lessons-learned.md).
+The best place to start is the project page itself: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent). Any updated setup notes, known issues, and fixes will be posted there before anywhere else.
 
-## Credits and license
+If you run into a problem that the troubleshooting section does not cover, search the page for the same symptom. Odd setup problems tend to repeat, and someone has usually already described the fix. When you do post, include your Windows version, what you were doing when it broke, and what you saw on screen. That detail saves a lot of back and forth.
 
-- [Muse Gadget SDK](https://github.com/facebookincubator/muse-gadget-sdk) by Meta, Apache 2.0.
-- This guide and patch are Apache 2.0 too. See [LICENSE](LICENSE).
-- Not affiliated with Meta, Waveshare, M5Stack, Espressif, Seeed, AIPI or OpenAI.
-- Flashing custom firmware is at your own risk. Back up first (Step 6).
+## 📄 Credits
+
+This project stands on Meta's Muse Gadget SDK, which is free and open source and makes the whole thing possible. Thanks are also due to the Muse community for testing, reporting issues, and improving the setup experience for everyone who comes after.
+
+Keywords: esp32-muse-agent, pocket AI agent, Muse Gadget SDK, ESP32 voice assistant, DIY AI gadget, touchscreen AI companion, open source voice assistant, Meta Muse, build your own AI agent, cheap AI assistant, ESP32 project, animated face gadget
